@@ -165,7 +165,27 @@
 
 
 
-//nq
+//ne
+
+// const express = require('express');
+// const app = express();
+
+// const userModel = require("./models/user");
+
+// app.get("/",function (req, res) {
+//     res.send("Home is Working");
+// })
+
+// app.get("/ne",async function (req, res) {
+//     let user = await userModel.find({age:{$ne:30}});
+//     res.send(user);
+// })
+
+// app.listen(3000);
+
+
+
+// lt
 
 const express = require('express');
 const app = express();
@@ -176,8 +196,8 @@ app.get("/",function (req, res) {
     res.send("Home is Working");
 })
 
-app.get("/ne",async function (req, res) {
-    let user = await userModel.find({age:{$ne:30}});
+app.get("/lt",async function (req, res) {
+    let user = await userModel.find({age:{$lt:23}});
     res.send(user);
 })
 
