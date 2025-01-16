@@ -301,7 +301,7 @@ app.get("/",function (req, res) {
 })
 
 app.get("/nin",async function (req, res) {
-    let user = await userModel.find({age:{$nin:[25,29]}});
+    let user = await userModel.find({isMarried:{$nin:[false]}});
     res.send(user);
 })
 
