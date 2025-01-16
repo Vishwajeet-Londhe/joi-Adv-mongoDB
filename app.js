@@ -248,6 +248,27 @@
 
 //gte
 
+// const express = require('express');
+// const app = express();
+
+// const userModel = require("./models/user");
+
+// app.get("/",function (req, res) {
+//     res.send("Home is Working");
+// })
+
+// app.get("/gte",async function (req, res) {
+//     let user = await userModel.find({age:{$gte:30}});
+//     res.send(user);
+// })
+
+// app.listen(3000);
+
+
+
+
+//in
+
 const express = require('express');
 const app = express();
 
@@ -257,8 +278,8 @@ app.get("/",function (req, res) {
     res.send("Home is Working");
 })
 
-app.get("/gte",async function (req, res) {
-    let user = await userModel.find({age:{$gte:30}});
+app.get("/in",async function (req, res) {
+    let user = await userModel.find({age:{$in:[25,29,30]}});
     res.send(user);
 })
 
