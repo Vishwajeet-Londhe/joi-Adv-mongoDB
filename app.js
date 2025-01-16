@@ -187,6 +187,26 @@
 
 // lt
 
+// const express = require('express');
+// const app = express();
+
+// const userModel = require("./models/user");
+
+// app.get("/",function (req, res) {
+//     res.send("Home is Working");
+// })
+
+// app.get("/lt",async function (req, res) {
+//     let user = await userModel.find({age:{$lt:23}});
+//     res.send(user);
+// })
+
+// app.listen(3000);
+
+
+
+//lte
+
 const express = require('express');
 const app = express();
 
@@ -196,8 +216,8 @@ app.get("/",function (req, res) {
     res.send("Home is Working");
 })
 
-app.get("/lt",async function (req, res) {
-    let user = await userModel.find({age:{$lt:23}});
+app.get("/lte",async function (req, res) {
+    let user = await userModel.find({age:{$lte:23}});
     res.send(user);
 })
 
