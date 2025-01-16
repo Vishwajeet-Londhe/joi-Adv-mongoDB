@@ -155,7 +155,7 @@ app.get("/",function (req, res) {
 })
 
 app.get("/eq",async function (req, res) {
-    let user = await userModel.find({age:29});
+    let user = await userModel.find({age:{$eq:29}});
     res.send(user);
 })
 
