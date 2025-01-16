@@ -269,6 +269,28 @@
 
 //in
 
+// const express = require('express');
+// const app = express();
+
+// const userModel = require("./models/user");
+
+// app.get("/",function (req, res) {
+//     res.send("Home is Working");
+// })
+
+// app.get("/in",async function (req, res) {
+//     let user = await userModel.find({age:{$in:[25,29,30]}});
+//     res.send(user);
+// })
+
+// app.listen(3000);
+
+
+
+
+
+//nin
+
 const express = require('express');
 const app = express();
 
@@ -278,8 +300,8 @@ app.get("/",function (req, res) {
     res.send("Home is Working");
 })
 
-app.get("/in",async function (req, res) {
-    let user = await userModel.find({age:{$in:[25,29,30]}});
+app.get("/nin",async function (req, res) {
+    let user = await userModel.find({age:{$nin:[25,29]}});
     res.send(user);
 })
 
