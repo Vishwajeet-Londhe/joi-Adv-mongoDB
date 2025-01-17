@@ -342,7 +342,7 @@ app.get("/",function (req, res) {
 })
 
 app.get("/and",async function (req, res) {
-    let users = await userModel.find({$and:[{isMarried:true},{age: {$gte: 30}}]});
+    let users = await userModel.find({$and:[{isMarried:false},{isAdmin:true},{age: {$gte: 22}}]});
     res.send(users);
 })
 
