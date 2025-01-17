@@ -353,6 +353,27 @@
 
 //or
 
+// const express = require('express');
+// const app = express();
+
+// const userModel = require("./models/user");
+
+// app.get("/",function (req, res) {
+//     res.send("Home is Working");
+// })
+
+// app.get("/or",async function (req, res) {
+//     let users = await userModel.find({$or:[{isMarried:false},{isAdmin:true},{age: {$gte: 22}}]});
+//     res.send(users);
+// })
+
+// app.listen(3000);
+
+
+
+
+//regex
+
 const express = require('express');
 const app = express();
 
@@ -362,8 +383,8 @@ app.get("/",function (req, res) {
     res.send("Home is Working");
 })
 
-app.get("/or",async function (req, res) {
-    let users = await userModel.find({$or:[{isMarried:false},{isAdmin:true},{age: {$gte: 22}}]});
+app.get("/regex",async function (req, res) {
+    let users = await userModel.find({name:{$regex: /^so.*r$/i}});
     res.send(users);
 })
 
