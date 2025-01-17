@@ -311,6 +311,27 @@
 
 //exists
 
+// const express = require('express');
+// const app = express();
+
+// const userModel = require("./models/user");
+
+// app.get("/",function (req, res) {
+//     res.send("Home is Working");
+// })
+
+// app.get("/exists",async function (req, res) {
+//     let user = await userModel.find({isAdmin:{$exists:true}});
+//     res.send(user);
+// })
+
+// app.listen(3000);
+
+
+
+
+//And
+
 const express = require('express');
 const app = express();
 
@@ -320,9 +341,9 @@ app.get("/",function (req, res) {
     res.send("Home is Working");
 })
 
-app.get("/exists",async function (req, res) {
-    let user = await userModel.find({isAdmin:{$exists:true}});
-    res.send(user);
+app.get("/and",async function (req, res) {
+    let users = await userModel.find({$and:[{isMarried:true},{age: {$gte: 30}}]});
+    res.send(users);
 })
 
 app.listen(3000);
