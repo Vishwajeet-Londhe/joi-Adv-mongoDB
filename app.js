@@ -321,7 +321,7 @@ app.get("/",function (req, res) {
 })
 
 app.get("/exists",async function (req, res) {
-    let user = await userModel.find({isAdmin:{$exists:false}});
+    let user = await userModel.find({isAdmin:{$exists:true}});
     res.send(user);
 })
 
