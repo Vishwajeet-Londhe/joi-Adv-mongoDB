@@ -384,7 +384,7 @@ app.get("/",function (req, res) {
 })
 
 app.get("/regex",async function (req, res) {
-    let users = await userModel.find({name:{$regex: /^so.*r$/i}});
+    let users = await userModel.find({name:{$regex: /.*s$/i}});
     res.send(users);
 })
 
