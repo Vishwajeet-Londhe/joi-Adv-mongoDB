@@ -291,6 +291,26 @@
 
 //nin
 
+// const express = require('express');
+// const app = express();
+
+// const userModel = require("./models/user");
+
+// app.get("/",function (req, res) {
+//     res.send("Home is Working");
+// })
+
+// app.get("/nin",async function (req, res) {
+//     let user = await userModel.find({isMarried:{$nin:[false]}});
+//     res.send(user);
+// })
+
+// app.listen(3000);
+
+
+
+//exists
+
 const express = require('express');
 const app = express();
 
@@ -300,8 +320,8 @@ app.get("/",function (req, res) {
     res.send("Home is Working");
 })
 
-app.get("/nin",async function (req, res) {
-    let user = await userModel.find({isMarried:{$nin:[false]}});
+app.get("/exists",async function (req, res) {
+    let user = await userModel.find({isAdmin:{$exists:false}});
     res.send(user);
 })
 
