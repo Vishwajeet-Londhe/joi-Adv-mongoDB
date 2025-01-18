@@ -374,18 +374,43 @@
 
 //regex
 
+// const express = require('express');
+// const app = express();
+
+// const userModel = require("./models/user");
+
+// app.get("/",function (req, res) {
+//     res.send("Home is Working");
+// })
+
+// app.get("/regex",async function (req, res) {
+//     let users = await userModel.find({name:{$regex: /.*s$/i}});
+//     res.send(users);
+// })
+
+// app.listen(3000);
+
+
+
+
+// Joi
+
 const express = require('express');
 const app = express();
-
 const userModel = require("./models/user");
 
-app.get("/",function (req, res) {
-    res.send("Home is Working");
+app.use(express.json());
+app.use(express.urlencoded({ extended:true }));
+
+app.get("/", function (req, res) {
+    res.send("are baba ye to chal raha hai");
 })
 
-app.get("/regex",async function (req, res) {
-    let users = await userModel.find({name:{$regex: /.*s$/i}});
-    res.send(users);
+app.post("/create", async function (req, res) {
+    let user = await userModel.create({
+        name : req.body.name,
+    })
+    res.send(user);
 })
 
 app.listen(3000);
