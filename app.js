@@ -440,7 +440,7 @@ app.post("/create", async function (req, res) {
 
 app.post("/:username/create/post", async (req, res) => {
     let user = await userModel.findOne({ username: req.param.username});
-    user.posts.push({content: "hey dost 1st post tayar hai"});
+    user.post.push({content: "hey dost ye mera 1nd post tayar hai"});
     user.save();
     res.send(user);
 });

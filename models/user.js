@@ -71,19 +71,20 @@ const mongoose = require('mongoose');
 
 mongoose.connect("mongodb://127.0.0.1:27017/relationships");
 
+const postSchema = mongoose.Schema({
+    content:String,
+    date:{
+        type: Date,
+        default: Date.now()
+    }
+
+})
+
 const userSchema = new mongoose.Schema({
     username:String,
     email:  String,
     password: String,
-    posts: [
-        {
-            content: String,
-            date:{
-                type: Date,
-                default: Date.now()
-            }
-        }
-    ],
+    post: [postSchema],
 });
 
 module.exports = mongoose.model('User',userSchema);
