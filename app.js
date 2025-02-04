@@ -433,9 +433,15 @@ app.post("/create", async function (req, res) {
         username: req.body.username,
         email: req.body.email,
         password: req.body.password
-    })
+    });
 
     res.send(createduser);
 })
+
+app.post("/:username/create/post", async (req, res) => {
+    let user = await userModel.findOne({ username: req.param.username});
+    user.posts.push({content: "hey dost 1st post tayar hai"});
+    res.send(user);
+});
 
 app.listen(3000);
