@@ -395,22 +395,47 @@
 
 // Joi
 
+// const express = require('express');
+// const app = express();
+// const userModel = require("./models/user");
+
+// app.use(express.json());
+// app.use(express.urlencoded({ extended:true }));
+
+// app.get("/", function (req, res) {
+//     res.send("are baba ye to chal raha hai");
+// })
+
+// app.post("/create", async function (req, res) {
+//     let user = await userModel.create({
+//         name : req.body.name,
+//     })
+//     res.send(user);
+// })
+
+// app.listen(3000);
+
+
+
+
+
+// relationship introduction
+
 const express = require('express');
 const app = express();
 const userModel = require("./models/user");
 
 app.use(express.json());
-app.use(express.urlencoded({ extended:true }));
-
-app.get("/", function (req, res) {
-    res.send("are baba ye to chal raha hai");
-})
+app.use(express.urlencoded({ extended: true }));
 
 app.post("/create", async function (req, res) {
-    let user = await userModel.create({
-        name : req.body.name,
+    let createduser =await userModel.create({
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password
     })
-    res.send(user);
+
+    res.send(createduser);
 })
 
 app.listen(3000);
